@@ -3,7 +3,7 @@ using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Events;
-using Content.Shared.Corvax.TTS;
+using Content.Shared._Sunrise.TTS;
 using Content.Shared.Damage;
 using Content.Shared.Electrocution;
 using Content.Shared.Explosion;
@@ -46,8 +46,8 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, CoefficientQueryEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, CheckMagicItemEvent>(RelayInventoryEvent); // goob edit
 
-        // Corvax-TTS
-        SubscribeLocalEvent<InventoryComponent, TransformSpeakerVoiceEvent>(RelayInventoryEvent);
+        // // Corvax-TTS
+        // SubscribeLocalEvent<InventoryComponent, TransformSpeakerVoiceEvent>(RelayInventoryEvent);
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, GetExplosionResistanceEvent>(RefRelayInventoryEvent);

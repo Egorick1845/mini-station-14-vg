@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;
-using Content.Shared.Corvax.TTS;
+using Content.Shared._Sunrise.TTS;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;

@@ -830,7 +830,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
-            UpdateTTSVoicesControls(); // Corvax-TTS
+            UpdateTtsVoicesControls(); // Sunrise-TTS
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1263,7 +1263,7 @@ namespace Content.Client.Lobby.UI
             }
 
             UpdateGenderControls();
-            UpdateTTSVoicesControls(); // Corvax-TTS
+            UpdateTtsVoicesControls(); // Sunrise-TTS
             Markings.SetSex(newSex);
             ReloadPreview();
         }
