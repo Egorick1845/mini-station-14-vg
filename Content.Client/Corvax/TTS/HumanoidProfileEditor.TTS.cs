@@ -1,12 +1,15 @@
 ﻿using System.Linq;
-using Content.Client._Sunrise.TTS;
-using Content.Shared._Sunrise.TTS;
+using Content.Client.Corvax.TTS;
+using Content.Client.Lobby;
+using Content.Corvax.Interfaces.Shared;
+using Content.Shared.Corvax.TTS;
 using Content.Shared.Preferences;
 
 namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
+    private ISharedSponsorsManager? _sponsorsMgr;
     private List<TTSVoicePrototype> _voiceList = new();
 
     private void InitializeVoice()
@@ -23,10 +26,12 @@ public sealed partial class HumanoidProfileEditor
             SetVoice(_voiceList[args.Id].ID);
         };
 
-        VoicePlayButton.OnPressed += _ => PlayPreviewTts();
+        VoicePlayButton.OnPressed += _ => PlayPreviewTTS();
+
+        IoCManager.Instance!.TryResolveType(out _sponsorsMgr);
     }
 
-    private void UpdateTtsVoicesControls()
+    private void UpdateTTSVoicesControls()
     {
         if (Profile is null)
             return;
@@ -45,10 +50,14 @@ public sealed partial class HumanoidProfileEditor
 
             if (firstVoiceChoiceId == 1)
                 firstVoiceChoiceId = i;
-                continue;
 
-            VoiceButton.SetItemDisabled(VoiceButton.GetIdx(i), true);
-            VoiceButton.SetItemText(VoiceButton.GetIdx(i), Loc.GetString("sponsor-marking", ("name", name))); // Sunrise-edit
+            if (_sponsorsMgr is null)
+                continue;
+            if (voice.SponsorOnly && _sponsorsMgr != null &&
+                !_sponsorsMgr.GetClientPrototypes().Contains(voice.ID))
+            {
+                VoiceButton.SetItemDisabled(VoiceButton.GetIdx(i), true);
+            }
         }
 
         var voiceChoiceId = _voiceList.FindIndex(x => x.ID == Profile.Voice);
@@ -59,11 +68,11 @@ public sealed partial class HumanoidProfileEditor
         }
     }
 
-    private void PlayPreviewTts()
+    private void PlayPreviewTTS()
     {
         if (Profile is null)
             return;
 
-        _entManager.System<TTSSystem>().RequestPreviewTts(Profile.Voice);
+        _entManager.System<TTSSystem>().RequestPreviewTTS(Profile.Voice);
     }
 }

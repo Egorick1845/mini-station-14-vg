@@ -11,12 +11,6 @@ public sealed partial class CCVars
         CVarDef.Create("ic.restricted_names", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Sets the maximum IC name length.
-    /// </summary>
-    public static readonly CVarDef<int> MaxNameLength =
-        CVarDef.Create("ic.name_length", 32, CVar.SERVER | CVar.REPLICATED);
-
-    /// <summary>
     ///     Allows flavor text (character descriptions)
     /// </summary>
     public static readonly CVarDef<bool> FlavorText =

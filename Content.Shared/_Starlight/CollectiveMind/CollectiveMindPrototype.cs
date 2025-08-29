@@ -28,7 +28,4 @@ public sealed partial class CollectiveMindPrototype : IPrototype
 
     [DataField]
     public bool ShowNames = true;
-
-    [DataField("voiceId")]
-    public string? VoiceId { get; private set; } = null;
 }

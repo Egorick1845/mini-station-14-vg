@@ -13,7 +13,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
-using Content.Shared._Sunrise.TTS; // Corvax-TTS
+using Content.Shared.Corvax.TTS; // Corvax-TTS
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;

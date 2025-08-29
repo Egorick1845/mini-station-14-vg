@@ -37,7 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Shared._Sunrise.TTS;
+using Content.Shared.Corvax.TTS;
 using Content.Shared.Dataset;
 
 namespace Content.Server.Chat.Systems;
@@ -1351,7 +1351,6 @@ public enum InGameOOCChatType : byte
     Dead
 }
 
-
 /// <summary>
 ///     Controls transmission of chat.
 /// </summary>
@@ -1368,12 +1367,4 @@ public enum ChatTransmitRange : byte
 
     /// Ghosts can't hear or see it at all. Regular players can if in-range.
     NoGhosts
-}
-
-public sealed class CollectiveMindSpokeEvent(EntityUid source, string message, IReadOnlyCollection<EntityUid> receivers, string collectiveMindId) : EntityEventArgs
-{
-    public readonly EntityUid Source = source;
-    public readonly string Message = message;
-    public readonly IReadOnlyCollection<EntityUid> Receivers = receivers;
-    public readonly string CollectiveMindId = collectiveMindId;
 }
