@@ -13,7 +13,7 @@ public sealed partial class SunriseCCVars : CVars
     /// URL of the TTS server API.
     /// </summary>
     public static readonly CVarDef<bool> TTSEnabled =
-        CVarDef.Create("tts.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+        CVarDef.Create("tts.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
     /// <summary>
     /// URL of the TTS server API.
@@ -330,18 +330,6 @@ public sealed partial class SunriseCCVars : CVars
     public static readonly CVarDef<string> BanTelegramLink =
         CVarDef.Create("cl.telegram_link", "", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
-    /*
-     * Mood
-     */
-
-    public static readonly CVarDef<bool> MoodEnabled =
-        CVarDef.Create("mood.enabled", true, CVar.SERVER);
-
-    public static readonly CVarDef<bool> MoodIncreasesSpeed =
-        CVarDef.Create("mood.increases_speed", true, CVar.SERVER);
-
-    public static readonly CVarDef<bool> MoodDecreasesSpeed =
-        CVarDef.Create("mood.decreases_speed", true, CVar.SERVER);
 
     /**
      * Jump
